@@ -3,6 +3,18 @@ import { api } from "../api/productApi";
 import { toast } from "react-toastify";
 
 export default function AddProductModal({ close, fetchProducts }) {
+  const categories = [
+    "Electronics",
+    "Mobile",
+    "Computers & Laptops",
+    "Accessories",
+    "Home Appliances",
+    "Groceries",
+    "Clothing",
+    "Furniture",
+    "Gaming"
+  ];
+
   const [form, setForm] = useState({
     name: "",
     unit: "pcs",
@@ -30,9 +42,9 @@ export default function AddProductModal({ close, fetchProducts }) {
       });
 
       toast.success("Product added");
-      if (fetchProducts) {
-        await fetchProducts();
-      }
+
+      if (fetchProducts) await fetchProducts();
+
       close();
     } catch (err) {
       toast.error(err.response?.data?.message || "Failed to add product");
@@ -46,7 +58,7 @@ export default function AddProductModal({ close, fetchProducts }) {
 
         <div className="form-group">
           <label>Name *</label>
-          <input name="name" onChange={handleChange} />
+          <input name="name" value={form.name} onChange={handleChange} />
         </div>
 
         <div className="form-group">
@@ -60,12 +72,17 @@ export default function AddProductModal({ close, fetchProducts }) {
 
         <div className="form-group">
           <label>Category *</label>
-          <input name="category" onChange={handleChange} />
+          <select name="category" value={form.category} onChange={handleChange}>
+            <option value="">Select Category</option>
+            {categories.map((cat, i) => (
+              <option key={i} value={cat}>{cat}</option>
+            ))}
+          </select>
         </div>
 
         <div className="form-group">
           <label>Brand *</label>
-          <input name="brand" onChange={handleChange} />
+          <input name="brand" value={form.brand} onChange={handleChange} />
         </div>
 
         <div className="form-group">
@@ -75,7 +92,7 @@ export default function AddProductModal({ close, fetchProducts }) {
 
         <div className="form-group">
           <label>Image URL (optional)</label>
-          <input name="image" onChange={handleChange} />
+          <input name="image" value={form.image} onChange={handleChange} />
         </div>
 
         <div className="modal-actions">

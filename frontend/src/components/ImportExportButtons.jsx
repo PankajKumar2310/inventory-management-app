@@ -1,10 +1,18 @@
 import { api } from "../api/productApi";
 import { toast } from "react-toastify";
 
-export default function ImportExportButtons() {
+export default function ImportExportButtons({ fetchProducts }) {
   const importFile = (e) => {
     const file = e.target.files[0];
-    api.importCSV(file).then(()=> toast.success("Imported."));
+    if (!file) return;
+
+    api.importCSV(file)
+      .then(() => {
+        toast.success("Imported.");
+        if (fetchProducts) {
+          fetchProducts();
+        }
+      });
   };
 
   const exportCSV = () => {
