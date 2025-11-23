@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { ProductContext } from "../context/ProductContext";
 import { api } from "../api/productApi";
-import { IoClose } from "react-icons/io5"; // <-- add icon
+import { IoClose } from "react-icons/io5"; 
 
 export default function SidebarHistory() {
   const { selectedProduct, setSelectedProduct } = useContext(ProductContext);

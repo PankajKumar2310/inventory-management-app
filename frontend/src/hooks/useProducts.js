@@ -29,19 +29,47 @@ export default function useProducts() {
     setProducts(res.data);
   };
 
-  const updateProduct = async (id, updated) => {
-    const oldData = [...products];
-    setProducts(products.map(p => p.id === id ? updated : p));
+  const updateProduct = async (id, updates) => {
     try {
-      await api.updateProduct(id, updated);
-      toast.success("Updated");
-    } catch {
-      setProducts(oldData);
+      await api.updateProduct(id, updates);
+      fetchProducts(); 
+    } catch (error) {
+      console.error('Error updating product:', error);
+      throw error;
+    }
+  };
+
+  const deleteProduct = async (id) => {
+    try {
+      await api.deleteProduct(id);
+     
+      setProducts(prevProducts => prevProducts.filter(p => p.id !== id));
+      
+      await fetchProducts();
+      return true;
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      throw error;
     }
   };
 
   useEffect(() => { fetchProducts(); }, [categoryFilter]);
-  useEffect(() => { if (query) search(); }, [query]);
+  useEffect(() => {
+  if (query.trim() === "") {
+    fetchProducts(); 
+  } else {
+    search(); 
+  }
+}, [query]);
 
-  return { products, loading, updateProduct, setQuery, setCategoryFilter, fetchProducts };
+
+  return { 
+    products, 
+    loading, 
+    updateProduct, 
+    deleteProduct,
+    setQuery, 
+    setCategoryFilter, 
+    fetchProducts 
+  };
 }

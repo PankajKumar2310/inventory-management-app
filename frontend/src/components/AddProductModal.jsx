@@ -2,7 +2,7 @@ import { useState } from "react";
 import { api } from "../api/productApi";
 import { toast } from "react-toastify";
 
-export default function AddProductModal({ close }) {
+export default function AddProductModal({ close, fetchProducts }) {
   const [form, setForm] = useState({
     name: "",
     unit: "pcs",
@@ -30,6 +30,9 @@ export default function AddProductModal({ close }) {
       });
 
       toast.success("Product added");
+      if (fetchProducts) {
+        await fetchProducts();
+      }
       close();
     } catch (err) {
       toast.error(err.response?.data?.message || "Failed to add product");

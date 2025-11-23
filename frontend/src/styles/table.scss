@@ -15,7 +15,7 @@
     padding: 12px 14px;
     text-align: left;
     color: var(--text-dark);
-    font-size: 15px;
+    font-size: 20px;
   }
 
   tbody tr {
@@ -43,18 +43,18 @@
     font-weight: 600;
   }
 
-  .in-stock {
+  .in-stock, .green {
     background: rgba(16, 185, 129, 0.15);
     color: var(--success);
   }
 
-  .out-stock {
+  .out-stock,.red {
     background: rgba(239, 68, 68, 0.15);
     color: var(--danger);
   }
 
   .edit-btn,
-  .delete-btn {
+  .delete-btn,.cancel-btn {
     padding: 6px 10px;
     font-size: 13px;
     border-radius: 6px;
@@ -84,4 +84,44 @@
 .cancel-btn {
   background: #9ca3af;
   color: white;
+  margin-top: 2px;
+}
+
+.action-div,.action-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #6b7280;
+  background: white;
+  border-radius: 12px;
+  margin-top: 10px;
+  border: 1px solid #e5e7eb;
 }

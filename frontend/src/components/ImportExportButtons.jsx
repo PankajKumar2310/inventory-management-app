@@ -20,8 +20,8 @@ export default function ImportExportButtons() {
   return (
     <>
       <input type="file" id="upload" hidden onChange={importFile}/>
-      <button onClick={()=>document.getElementById("upload").click()}>📁 Import</button>
-      <button onClick={exportCSV}>⬇ Export</button>
+      <button onClick={()=>document.getElementById("upload").click()}><i class="ri-file-excel-fill"></i> ImportCsv</button>
+      <button onClick={exportCSV}><i class="ri-folder-download-fill"></i> Export</button>
     </>
   );
 }

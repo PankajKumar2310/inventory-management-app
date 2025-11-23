@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
+@font-face {
+  font-family: invent;
+  src: url(../../fonts/sf-pro-display_regular.woff2);
+}
+
 :root {
   --primary: #3b82f6;
   --danger: #ef4444;
@@ -17,7 +22,7 @@
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: invent;
   background: var(--light-gray);
   padding: 20px;
   color: var(--text-dark);
@@ -29,6 +34,7 @@ button {
   padding: 10px 16px;
   border-radius: 8px;
   background: var(--primary);
+  background-color: black;
   color: white;
   font-weight: 500;
   transition: all 0.2s ease;
@@ -36,6 +42,10 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+}
+
+i{
+  font-size: 19px;
 }
 
 button:hover {
@@ -74,21 +84,33 @@ input:focus, select:focus {
   padding: 16px 20px;
   border-radius: 12px;
   box-shadow: var(--shadow);
+  font-family: invent;
+}
+.arrow{
+  font-size: 25px;
+  cursor: pointer;
 }
 
 .search-input {
   flex: 1;
   min-width: 200px;
   max-width: 300px;
+  font-family: invent;
 }
 
 .category-select {
   min-width: 150px;
   max-width: 200px;
+  font-family: invent;
+  font-weight: 600;
+}
+.category-select option{
+  font-weight: 600;
 }
 
 .add-product-btn {
-  background: var(--success);
+  // background: var(--success);
+  background-color: black;
   white-space: nowrap;
 }
 

@@ -10,9 +10,15 @@ export const api = {
   deleteProduct: (id) => axios.delete(`${API_BASE}/${id}`),
   getHistory: (id) => axios.get(`${API_BASE}/${id}/history`),
   importCSV: (file) => {
-    const formData = new FormData();
-    formData.append("csvFile", file);
-    return axios.post(`${API_BASE}/import`, formData);
-  },
+  const formData = new FormData();
+  formData.append("csvFile", file);
+
+  return axios.post(`${API_BASE}/import`, formData, {
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+},
+
   exportCSV: () => axios.get(`${API_BASE}/export`, { responseType: "blob" })
 };
