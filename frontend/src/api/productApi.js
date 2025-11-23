@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE = "http://localhost:5000/api/products";
+const API_BASE = "https://inventory-backend-x3eb.onrender.com/api/products";
+
 
 export const api = {
   getProducts: (params) => axios.get(API_BASE, { params }),
