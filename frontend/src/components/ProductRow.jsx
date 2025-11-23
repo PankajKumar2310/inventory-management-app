@@ -35,7 +35,7 @@ export default function ProductRow({ product, updateProduct, onDelete }) {
   return (
     <>
     <tr onClick={() => !edit && setSelectedProduct(product)}>
-      <td><img src={product.image} width="40" alt=""/></td>
+      <td><img src={product.image} width="40" alt="" loading="lazy" decoding="async"/></td>
 
       <td>{edit ? <input defaultValue={form.name} onClick={(e)=>e.stopPropagation()} onChange={(e)=>setForm({...form,name:e.target.value})}/> : product.name}</td>
 
