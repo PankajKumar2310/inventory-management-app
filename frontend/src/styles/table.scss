@@ -1,0 +1,87 @@
+.product-table {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-top: 18px;
+
+  thead {
+    background: #90a1d2;
+    font-weight: 600;
+  }
+
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    color: var(--text-dark);
+    font-size: 15px;
+  }
+
+  tbody tr {
+    transition: background 0.2s ease;
+    cursor: pointer;
+  }
+
+  tbody tr:hover {
+    background: #f6f8ff;
+  }
+
+  img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+  }
+
+  .status {
+    padding: 6px 10px;
+    display: inline-block;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .in-stock {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--success);
+  }
+
+  .out-stock {
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--danger);
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+
+  .edit-btn {
+    background: var(--primary);
+    color: white;
+  }
+
+  .edit-btn:hover {
+    opacity: 0.85;
+  }
+
+  .delete-btn {
+    background: var(--danger);
+    color: white;
+  }
+}
+
+
+.save-btn {
+  background: var(--success);
+  margin-right: 5px;
+}
+
+.cancel-btn {
+  background: #9ca3af;
+  color: white;
+}
